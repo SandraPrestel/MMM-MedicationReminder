@@ -40,7 +40,7 @@ Module.register("MMM-MedicationReminder", {
             currentMinute = currentDate.getMinutes();
             // check if the current time is within the timeframe of the reminder (time + duration)
             this.currentList = [];
-            this.currentList.push(3);
+            this.currentList.push(currentHour);
 
             // ... if yes: add to display list
 
