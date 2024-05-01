@@ -4,8 +4,8 @@ Module.register("MMM-MedicationReminder", {
     defaults: {
         reminders: [{
             medicationname: "L-Thyroxin",
-            time: "16:00",
-            duration: 60 * 60 * 1000
+            time: "16:30",
+            duration: 60
         }]
         
     },
@@ -40,10 +40,16 @@ Module.register("MMM-MedicationReminder", {
 
         this.config.reminders.forEach((medication) => {
             // check if the current time is within the timeframe of the reminder (time + duration)
-            reminderhour = new Date("2000-01-01T" + medication.time).getHours();
+            reminderTime = new Date("2000-01-01T" + medication.time)
+            reminderHour = reminderTime.getHours();
+            reminderMinute = reminderTime.getMinutes();
+
+            maxDisplayMinute = reminderMinute + medication.duration;
+            hourOverFlow = maxDisplayMinute % 60;
+            maxDisplayHour = reminderHour + hourOverFlow;
 
             this.currentList = [];
-            this.currentList.push(reminderhour);
+            this.currentList.push(maxDisplayHour);
 
             // ... if yes: add to display list
 
