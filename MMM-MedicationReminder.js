@@ -51,10 +51,18 @@ Module.register("MMM-MedicationReminder", {
                 reminderEndMinute = reminderEndMinute % 60;
             };
 
-            this.currentList = [];
-            this.currentList.push(reminderEndMinute);
+            reminderEndDate = new Date(currentDate.getTime());
+            reminderEndDate.setHours(reminderEndHour);
+            reminderEndDate.setMinutes(reminderEndMinute);
+
+            reminderActive = reminderDate < currentDate && reminderEndDate > currentDate;
 
             // ... if yes: add to display list
+            if (reminderActive){
+                this.currentList.push("Reminder Active");
+            } else {
+                this.currentList.push("Reminder Not Active");
+            }
 
             // ... if not go to next
         });
