@@ -52,7 +52,7 @@ Module.register("MMM-MedicationReminder", {
             };
 
             this.currentList = [];
-            this.currentList.push(reminderDate.getHours());
+            this.currentList.push(reminderEndHour);
 
             // ... if yes: add to display list
 
