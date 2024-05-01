@@ -40,7 +40,7 @@ Module.register("MMM-MedicationReminder", {
 
         this.config.reminders.forEach((medication) => {
             // check if the current time is within the timeframe of the reminder (time + duration)
-            reminderhour = new Date("01/01/2000" + medication.time).getHours();
+            reminderhour = new Date("2000-01-01T" + medication.time).getHours();
 
             this.currentList = [];
             this.currentList.push(reminderhour);
