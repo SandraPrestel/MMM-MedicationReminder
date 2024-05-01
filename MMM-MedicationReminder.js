@@ -32,6 +32,8 @@ Module.register("MMM-MedicationReminder", {
 
         let self = this;
 
+        currentList = [];
+
         this.config.reminders.array.forEach(function(medication, i) {
             // get current time
             currentDate = new Date();
@@ -53,7 +55,7 @@ Module.register("MMM-MedicationReminder", {
     // create the current list of notifications
     displayMedications: function () {
 
-        self.updateDom();
+        this.updateDom();
     },
 
 
