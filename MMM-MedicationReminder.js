@@ -45,7 +45,7 @@ Module.register("MMM-MedicationReminder", {
             reminderMinute = reminderTime.getMinutes();
 
             maxDisplayMinute = reminderMinute + medication.duration;
-            hourOverFlow = maxDisplayMinute % 60;
+            hourOverFlow = Math.floor(maxDisplayMinute/60);
             maxDisplayHour = reminderHour + hourOverFlow;
 
             this.currentList = [];
