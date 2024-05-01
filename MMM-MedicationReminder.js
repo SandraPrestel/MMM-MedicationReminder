@@ -3,13 +3,26 @@ Module.register("MMM-MedicationReminder", {
     // default config values
     defaults: {
         reminders: [{
-            medicationname: "L-Thyroxin",
+            medicationname: "Some Tabletts",
+            type: "pill",
             time: "16:30",
             duration: 60
-        }]
+        },{
+            medicationname: "Nose Spray",
+            type: "spray",
+            time: "10:00",
+            duration: 60
+        },{
+            medicationname: "Some other medication",
+            type: "other",
+            time: "12:00",
+            duration: 60
+        }
+    ]
         
     },
 
+    
     currentList: [],
 
     // when the mirror has started and all modules are loaded:
@@ -23,7 +36,7 @@ Module.register("MMM-MedicationReminder", {
         setInterval(function() {
             self.checkMedications();
             self.displayMedications();
-        }, 1*1000);
+        }, 60*1000);
 
     },
 
@@ -58,7 +71,9 @@ Module.register("MMM-MedicationReminder", {
             reminderActive = reminderDate < currentDate && reminderEndDate > currentDate;
 
             // ... if yes: add medication to display list
-            this.currentList.push(medication);
+            if (reminderActive){
+                this.currentList.push(medication);
+            }
 
             // ... if not go to next
         });
@@ -68,7 +83,6 @@ Module.register("MMM-MedicationReminder", {
 
     // create the current list of notifications
     displayMedications: function () {
-
         this.updateDom();
     },
 
@@ -77,8 +91,11 @@ Module.register("MMM-MedicationReminder", {
     getDom: function () {
         var wrapper = document.createElement("div");
         
-        //wrapper.innerHTML = this.config.reminders[0].medicationname;
-        wrapper.innerHTML = this.currentList[0].medicationname;
+        // TODO: Display List for more than one entry
+        // TODO: Add icon
+        textWithLogo = ' ' + '<p class="xsmall dimmed regular"> <i class="fa-solid fa-pills"></i>   Test   </p>'
+        wrapper.innerHTML = textWithLogo;
+        //wrapper.innerHTML = this.currentList[0].medicationname;
 
         return wrapper;
     },
