@@ -37,7 +37,7 @@ Module.register("MMM-MedicationReminder", {
             currentDate = new Date();
             currentTime = currentDate.toLocaleTimeString();
             // check if the current time is within the timeframe of the reminder (time + duration)
-            console.log(currentTime);
+            currentList.push(currentTime)
 
             // ... if yes: add to display list
 
@@ -60,7 +60,9 @@ Module.register("MMM-MedicationReminder", {
     // Build the module display
     getDom: function () {
         var wrapper = document.createElement("div");
-        wrapper.innerHTML = this.config.reminders[0].medicationname;
+        
+        //wrapper.innerHTML = this.config.reminders[0].medicationname;
+        wrapper.innerHTML = this.currentList[0];
 
         return wrapper;
     },
