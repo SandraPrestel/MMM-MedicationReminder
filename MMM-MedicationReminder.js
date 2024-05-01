@@ -30,11 +30,9 @@ Module.register("MMM-MedicationReminder", {
 
     checkMedications: function () {
 
-        let self = this;
-
         currentList = [];
 
-        this.config.reminders.array.forEach(function(medication, i) {
+        this.config.reminders.forEach(function(medication, i) {
             // get current time
             currentDate = new Date();
             currentHour = currentDate.getHours();
@@ -46,8 +44,6 @@ Module.register("MMM-MedicationReminder", {
 
             // ... if not go to next
         });
-
-        
 
     },
 
