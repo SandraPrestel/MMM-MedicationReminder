@@ -10,7 +10,7 @@ Module.register("MMM-MedicationReminder", {
         
     },
 
-    currentList: [],
+    currentList: [1],
 
     // when the mirror has started and all modules are loaded:
     // check every minute, if a notification should be displayed and display the list of medications
@@ -23,7 +23,7 @@ Module.register("MMM-MedicationReminder", {
         setInterval(function() {
             self.checkMedications();
             self.displayMedications();
-        }, 60*1000);
+        }, 1*1000);
 
     },
 
@@ -35,9 +35,10 @@ Module.register("MMM-MedicationReminder", {
         this.config.reminders.array.forEach(function(medication, i) {
             // get current time
             currentDate = new Date();
-            currentTime = currentDate.toLocaleTimeString();
+            currentHour = currentDate.getHours();
+            currentMinute = currentDate.getMinutes();
             // check if the current time is within the timeframe of the reminder (time + duration)
-            currentList.push(currentTime)
+            currentList.push(currentHour)
 
             // ... if yes: add to display list
 
@@ -51,7 +52,6 @@ Module.register("MMM-MedicationReminder", {
 
     // create the current list of notifications
     displayMedications: function () {
-
 
         self.updateDom();
     },
