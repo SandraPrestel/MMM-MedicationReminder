@@ -44,8 +44,8 @@ Module.register("MMM-MedicationReminder", {
             reminderDate.setHours(medication.time.split(":")[0]);
             reminderDate.setMinutes(medication.time.split(":")[1]);
 
-            reminderEndHour = medication.time.split(":")[0];
-            reminderEndMinute = medication.time.split(":")[1] + medication.duration;
+            reminderEndHour = reminderDate.getHours();
+            reminderEndMinute = reminderDate.getMinutes() + medication.duration;
             if(reminderEndMinute >= 60){
                 reminderEndHour = reminderEndHour + Math.floor(reminderEndMinute/60);
                 reminderEndMinute = reminderEndMinute % 60;
