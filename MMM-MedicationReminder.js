@@ -33,7 +33,7 @@ Module.register("MMM-MedicationReminder", {
         this.currentList = [];
         this.currentList.push(2);
 
-        this.config.reminders.forEach(function(medication, i) {
+        this.config.reminders.forEach((medication) => {
             // get current time
             currentDate = new Date();
             currentHour = currentDate.getHours();
