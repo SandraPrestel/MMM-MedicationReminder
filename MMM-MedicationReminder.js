@@ -10,7 +10,7 @@ Module.register("MMM-MedicationReminder", {
         
     },
 
-    currentList: [1],
+    currentList: [],
 
     // when the mirror has started and all modules are loaded:
     // check every minute, if a notification should be displayed and display the list of medications
@@ -57,12 +57,8 @@ Module.register("MMM-MedicationReminder", {
 
             reminderActive = reminderDate < currentDate && reminderEndDate > currentDate;
 
-            // ... if yes: add to display list
-            if (reminderActive){
-                this.currentList.push("Reminder Active");
-            } else {
-                this.currentList.push("Reminder Not Active");
-            }
+            // ... if yes: add medication to display list
+            this.currentList.push(medication);
 
             // ... if not go to next
         });
@@ -82,7 +78,7 @@ Module.register("MMM-MedicationReminder", {
         var wrapper = document.createElement("div");
         
         //wrapper.innerHTML = this.config.reminders[0].medicationname;
-        wrapper.innerHTML = this.currentList[0];
+        wrapper.innerHTML = this.currentList[0].medicationname;
 
         return wrapper;
     },
