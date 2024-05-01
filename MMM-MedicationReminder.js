@@ -40,16 +40,19 @@ Module.register("MMM-MedicationReminder", {
 
         this.config.reminders.forEach((medication) => {
             // check if the current time is within the timeframe of the reminder (time + duration)
-            reminderTime = new Date("2000-01-01T" + medication.time)
-            reminderHour = reminderTime.getHours();
-            reminderMinute = reminderTime.getMinutes();
+            reminderDate = new Date(currentDate.getTime());
+            reminderDate.setHours(medication.time.split(":")[0]);
+            reminderDate.setMinutes(medication.time.split(":")[1]);
 
-            maxDisplayMinute = reminderMinute + medication.duration;
-            hourOverFlow = Math.floor(maxDisplayMinute/60);
-            maxDisplayHour = reminderHour + hourOverFlow;
+            reminderEndHour = medication.time.split(":")[0];
+            reminderEndMinute = medication.time.split(":")[1] + medication.duration;
+            if(reminderEndMinute >= 60){
+                reminderEndHour = reminderEndHour + Math.floor(reminderEndMinute/60);
+                reminderEndMinute = reminderEndMinute % 60;
+            };
 
             this.currentList = [];
-            this.currentList.push(maxDisplayHour);
+            this.currentList.push(reminderDate.getHours());
 
             // ... if yes: add to display list
 
