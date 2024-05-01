@@ -92,7 +92,7 @@ Module.register("MMM-MedicationReminder", {
         var wrapper = document.createElement("div");
         
         // TODO: Display List for more than one entry
-        // TODO: Add icon
+        // TODO: Add icon to every Medication (see https://fontawesome.com/icons/pills?f=classic&s=solid for Logos)
         textWithLogo = ' ' + '<p class="xsmall dimmed regular"> <i class="fa-solid fa-pills"></i>   Test   </p>'
         wrapper.innerHTML = textWithLogo;
         //wrapper.innerHTML = this.currentList[0].medicationname;
