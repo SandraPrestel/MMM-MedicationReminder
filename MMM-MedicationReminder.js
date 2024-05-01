@@ -31,6 +31,7 @@ Module.register("MMM-MedicationReminder", {
     checkMedications: function () {
 
         this.currentList = [];
+        this.currentList.push(2);
 
         this.config.reminders.forEach(function(medication, i) {
             // get current time
@@ -38,7 +39,7 @@ Module.register("MMM-MedicationReminder", {
             currentHour = currentDate.getHours();
             currentMinute = currentDate.getMinutes();
             // check if the current time is within the timeframe of the reminder (time + duration)
-            this.currentList.push(currentHour)
+            //this.currentList.push(currentHour)
 
             // ... if yes: add to display list
 
