@@ -1,8 +1,8 @@
 // define icon urls for different medication types
 const iconlist = {
-    pill: '<i class="fa-solid fa-pills"></i>',
-    spray: '<i class="fa-solid fa-spray-can"></i>',
-    syringe: '<i class="fa-solid fa-syringe"></i>',
+    pill: '<i class="fa-solid fa-pills fa-border" style="--fa-border-color: transparent"></i>',
+    spray: '<i class="fa-solid fa-spray-can fa-border" style="--fa-border-color: transparent"></i>',
+    syringe: '<i class="fa-solid fa-syringe fa-border" style="--fa-border-color: transparent"></i>',
     other: '<i class="fa-solid fa-prescription-bottle-medical fa-border" style="--fa-border-color: transparent"></i>'
 };
 
@@ -13,7 +13,7 @@ Module.register("MMM-MedicationReminder", {
         reminders: [{
             medicationname: "Some Tabletts",
             type: "pill",
-            time: "16:30",
+            time: "11:00",
             duration: 60
         },{
             medicationname: "Nose Spray",
@@ -23,7 +23,7 @@ Module.register("MMM-MedicationReminder", {
         },{
             medicationname: "Some other medication",
             type: "other",
-            time: "12:30",
+            time: "13:00",
             duration: 60
         }
     ]
