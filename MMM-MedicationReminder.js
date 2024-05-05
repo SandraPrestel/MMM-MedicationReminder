@@ -102,7 +102,7 @@ Module.register("MMM-MedicationReminder", {
         medlist = medlist + this.currentList[0].medicationname;
 
         this.currentList.forEach((element) => {
-            this.medlist = this.medlist + '<p> ' + element.medicationname + '</p>';
+            medlist = medlist + '<p> ' + element.medicationname + '</p>';
             // TODO: Logo
         });
         
