@@ -3,7 +3,7 @@ const iconlist = {
     pill: '<i class="fa-solid fa-pills"></i>',
     spray: '<i class="fa-solid fa-spray-can"></i>',
     syringe: '<i class="fa-solid fa-syringe"></i>',
-    other: '<i class="fa-solid fa-prescription-bottle-medical"></i>'
+    other: '<i class="fa-solid fa-prescription-bottle-medical fa-pull-left"></i>'
 };
 
 Module.register("MMM-MedicationReminder", {
