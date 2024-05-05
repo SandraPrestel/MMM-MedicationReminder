@@ -23,7 +23,7 @@ Module.register("MMM-MedicationReminder", {
         },{
             medicationname: "Some other medication",
             type: "other",
-            time: "11:00",
+            time: "12:30",
             duration: 60
         }
     ]
@@ -98,8 +98,6 @@ Module.register("MMM-MedicationReminder", {
     getDom: function () {
         var wrapper = document.createElement("div");
         let medlist = 'test';
-
-        medlist = medlist + this.currentList[0].medicationname;
 
         this.currentList.forEach((element) => {
             medlist = medlist + '<p> ' + element.medicationname + '</p>';
