@@ -97,15 +97,15 @@ Module.register("MMM-MedicationReminder", {
     // Build the module display
     getDom: function () {
         var wrapper = document.createElement("div");
+        let medlist = 'test';
 
-        html = '';
         this.currentList.forEach((element) => {
-            this.html = this.html + '<p> ' + element.medicationname + '</p>';
+            this.medlist = this.medlist + '<p> ' + element.medicationname + '</p>';
             // TODO: Logo
         });
         
         //textWithLogo = ' ' + '<p> <i class="fa-solid fa-pills"></i>   Test   </p>'
-        wrapper.innerHTML = html;
+        wrapper.innerHTML = medlist;
 
         return wrapper;
     },
