@@ -1,3 +1,11 @@
+// define icon urls for different medication types
+const iconlist = {
+    pill: '<i class="fa-solid fa-pills"></i>',
+    spray: '<i class="fa-solid fa-spray-can"></i>',
+    syringe: '<i class="fa-solid fa-syringe"></i>',
+    other: '<i class="fa-solid fa-prescription-bottle-medical"></i>'
+};
+
 Module.register("MMM-MedicationReminder", {
 
     // default config values
@@ -10,7 +18,7 @@ Module.register("MMM-MedicationReminder", {
         },{
             medicationname: "Nose Spray",
             type: "spray",
-            time: "10:00",
+            time: "12:00",
             duration: 60
         },{
             medicationname: "Some other medication",
@@ -19,9 +27,7 @@ Module.register("MMM-MedicationReminder", {
             duration: 60
         }
     ]
-        
     },
-
     
     currentList: [],
 
@@ -32,6 +38,7 @@ Module.register("MMM-MedicationReminder", {
 
         // initial call
         self.checkMedications();
+        self.displayMedications();
 
         setInterval(function() {
             self.checkMedications();
@@ -90,12 +97,15 @@ Module.register("MMM-MedicationReminder", {
     // Build the module display
     getDom: function () {
         var wrapper = document.createElement("div");
+
+        html = '';
+        this.currentList.forEach((element) => {
+            this.html = this.html + '<p> ' + element.medicationname + '</p>';
+            // TODO: Logo
+        });
         
-        // TODO: Display List for more than one entry
-        // TODO: Add icon to every Medication (see https://fontawesome.com/icons/pills?f=classic&s=solid for Logos)
-        textWithLogo = ' ' + '<p class="xsmall dimmed regular"> <i class="fa-solid fa-pills"></i>   Test   </p>'
-        wrapper.innerHTML = textWithLogo;
-        //wrapper.innerHTML = this.currentList[0].medicationname;
+        //textWithLogo = ' ' + '<p> <i class="fa-solid fa-pills"></i>   Test   </p>'
+        wrapper.innerHTML = html;
 
         return wrapper;
     },
