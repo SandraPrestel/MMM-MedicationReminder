@@ -97,7 +97,7 @@ Module.register("MMM-MedicationReminder", {
     // Build the module display
     getDom: function () {
         var wrapper = document.createElement("div");
-        let medlist = 'test';
+        let medlist = '';
 
         this.currentList.forEach((element) => {
             medlist = medlist + '<p> ' + element.medicationname + '</p>';
