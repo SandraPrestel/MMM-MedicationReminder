@@ -11,19 +11,19 @@ Module.register("MMM-MedicationReminder", {
     // default config values
     defaults: {
         reminders: [{
-            medicationname: "Some Tabletts",
+            medicationname: "Some Medication",
             type: "pill",
-            time: "11:00",
+            time: "14:15",
             duration: 60
         },{
             medicationname: "Nose Spray",
             type: "spray",
-            time: "12:00",
+            time: "11:00",
             duration: 60
         },{
             medicationname: "Some other medication",
             type: "other",
-            time: "13:00",
+            time: "9:30",
             duration: 60
         }
     ]
@@ -103,7 +103,6 @@ Module.register("MMM-MedicationReminder", {
             medlist = medlist + '<p> ' + iconlist[element.type] + '  ' + element.medicationname + '</p>';
         });
         
-        //textWithLogo = ' ' + '<p> <i class="fa-solid fa-pills"></i>   Test   </p>'
         wrapper.innerHTML = medlist;
 
         return wrapper;
