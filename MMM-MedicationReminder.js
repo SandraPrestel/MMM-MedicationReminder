@@ -100,7 +100,7 @@ Module.register("MMM-MedicationReminder", {
         let medlist = '';
 
         this.currentList.forEach((element) => {
-            medlist = medlist + '<p> ' + iconlist[element.type]+ element.medicationname + '</p>';
+            medlist = medlist + '<p> ' + iconlist[element.type] + '  ' + element.medicationname + '</p>';
         });
         
         //textWithLogo = ' ' + '<p> <i class="fa-solid fa-pills"></i>   Test   </p>'
