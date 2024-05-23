@@ -25,7 +25,7 @@ Add this to your `~/MagicMirror/config/config.js`
 
 ```js
 {
-    module: 'MMM-WaterReminder',
+    module: 'MMM-MedicationReminder',
     position: 'bottom_center',
     config: {
     }
